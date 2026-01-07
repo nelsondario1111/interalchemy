@@ -1,7 +1,7 @@
 // app/rewilding/page.tsx
 import Link from "next/link";
 
-const REGISTRATION_URL = "https://g09k9fqm.forms.app/rewilding-registration-form";
+const REGISTRATION_URL = "/rewilding/register"; // our custom form route (we’ll build next)
 const LINKTREE_URL =
   "https://linktr.ee/interalchemyrewilding?utm_source=ig&utm_medium=social&utm_content=link_in_bio";
 const INSTAGRAM_URL = "https://www.instagram.com/interalchemy_rewilding/";
@@ -88,32 +88,48 @@ function SectionTitle({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-white">{title}</h2>
+      <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-white">
+        {title}
+      </h2>
       {subtitle ? (
-        <p className="mt-3 text-white/75 leading-relaxed">{subtitle}</p>
+        <p className="mt-3 text-white/80 leading-relaxed text-lg md:text-xl">
+          {subtitle}
+        </p>
       ) : null}
     </div>
   );
 }
 
-function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
+function PrimaryButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
-      className="inline-flex items-center justify-center rounded-xl bg-emerald-400 px-5 py-3 font-medium text-emerald-950 shadow-lg shadow-emerald-500/20 hover:bg-emerald-300 transition"
+      className="inline-flex items-center justify-center rounded-xl bg-emerald-300 px-5 py-3 font-semibold text-emerald-950 shadow-lg shadow-emerald-500/20 hover:bg-emerald-200 transition"
     >
       {children}
     </Link>
   );
 }
 
-function GhostButton({ href, children }: { href: string; children: React.ReactNode }) {
+function GhostButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
-      className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-3 font-medium text-white hover:bg-white/10 transition"
+      className="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/8 px-5 py-3 font-semibold text-white hover:bg-white/12 transition"
     >
       {children}
     </Link>
@@ -122,15 +138,17 @@ function GhostButton({ href, children }: { href: string; children: React.ReactNo
 
 export default function RewildingPage() {
   return (
-    <main className="min-h-screen bg-[#050B0A] text-white">
+    <main
+      className="min-h-screen text-white text-[17px] md:text-[18px] bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(52,211,153,0.22),transparent_60%),radial-gradient(900px_500px_at_80%_20%,rgba(34,197,94,0.14),transparent_55%),radial-gradient(900px_700px_at_50%_90%,rgba(16,185,129,0.10),transparent_60%),linear-gradient(to_bottom,#0A1B15,#050B0A)]"
+    >
       {/* Sticky top bar */}
-      <div className="sticky top-0 z-40 border-b border-white/10 bg-black/40 backdrop-blur">
+      <div className="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-emerald-400/15 border border-emerald-300/20" />
+            <div className="h-10 w-10 rounded-xl bg-emerald-300/20 border border-emerald-200/25" />
             <div className="leading-tight">
-              <p className="text-sm font-semibold">Interalchemy</p>
-              <p className="text-xs text-white/60">Rewilding Specialists</p>
+              <p className="text-base font-semibold">Interalchemy</p>
+              <p className="text-sm text-white/70">Rewilding Specialists</p>
             </div>
           </div>
           <PrimaryButton href={REGISTRATION_URL}>Register</PrimaryButton>
@@ -144,33 +162,40 @@ export default function RewildingPage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/amazon-hero.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-[#050B0A]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050B0A]" />
 
         <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-14 md:pt-24 md:pb-20">
           <div className="max-w-3xl">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/90">
+              <span className="h-2 w-2 rounded-full bg-emerald-300" />
               Jan 26–31, 2026 • 6 Days / 5 Nights • Peruvian High Amazon
             </p>
 
-            <h1 className="mt-5 text-4xl md:text-6xl font-semibold leading-tight">
+            <h1 className="mt-6 text-4xl md:text-6xl font-semibold leading-tight">
               Rewilding in the Amazon
             </h1>
 
-            <p className="mt-4 text-lg md:text-xl text-white/80">
-              Escape the ordinary. This isn’t just a vacation — it’s a journey back to your primal core.
+            <p className="mt-4 text-lg md:text-2xl text-white/85">
+              Escape the ordinary. This isn’t just a vacation — it’s a journey
+              back to your primal core.
             </p>
 
-            <p className="mt-3 text-sm text-white/65">All listed prices are in USD.</p>
+            <p className="mt-3 text-base text-white/70">
+              All listed prices are in USD.
+            </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <PrimaryButton href={REGISTRATION_URL}>Register / Apply Now</PrimaryButton>
+              <PrimaryButton href={REGISTRATION_URL}>
+                Register / Apply Now
+              </PrimaryButton>
               <GhostButton href={LINKTREE_URL}>View Linktree</GhostButton>
               <GhostButton href={`mailto:${EMAIL}`}>Email Us</GhostButton>
             </div>
 
-            <p className="mt-4 text-sm text-white/60">
-              Limited spaces • small groups only • airport pickup from Tarapoto (TPP)
+            <p className="mt-5 text-sm md:text-base text-white/70">
+              Limited spaces • small groups only • airport pickup from Tarapoto
+              (TPP)
             </p>
           </div>
         </div>
@@ -201,10 +226,12 @@ export default function RewildingPage() {
           ].map((c) => (
             <div
               key={c.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/20"
+              className="rounded-2xl border border-white/15 bg-white/8 p-7 shadow-lg shadow-black/20"
             >
-              <h3 className="text-xl font-semibold">{c.title}</h3>
-              <p className="mt-3 text-white/75 leading-relaxed">{c.body}</p>
+              <h3 className="text-xl md:text-2xl font-semibold">{c.title}</h3>
+              <p className="mt-3 text-white/85 leading-relaxed text-base md:text-lg">
+                {c.body}
+              </p>
             </div>
           ))}
         </div>
@@ -212,7 +239,7 @@ export default function RewildingPage() {
 
       {/* INCLUDED */}
       <section className="mx-auto max-w-6xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10">
+        <div className="rounded-3xl border border-white/15 bg-white/8 p-8 md:p-10">
           <SectionTitle
             eyebrow="All-Inclusive"
             title="What’s Included"
@@ -223,22 +250,24 @@ export default function RewildingPage() {
             {included.map((item) => (
               <div
                 key={item}
-                className="flex gap-3 rounded-2xl border border-white/10 bg-black/20 p-4"
+                className="flex gap-3 rounded-2xl border border-white/12 bg-white/6 p-5"
               >
-                <span className="mt-2 h-2 w-2 rounded-full bg-emerald-300" />
-                <p className="text-white/80">{item}</p>
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-emerald-200" />
+                <p className="text-white/85 text-base md:text-lg">{item}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-white/10 bg-black/25 p-5">
-            <p className="text-white/75">Registration takes ~2–4 minutes.</p>
-            <PrimaryButton href={REGISTRATION_URL}>Open Registration Form</PrimaryButton>
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-white/15 bg-black/20 p-5">
+            <p className="text-white/80">Registration takes ~2–4 minutes.</p>
+            <PrimaryButton href={REGISTRATION_URL}>
+              Open Registration
+            </PrimaryButton>
           </div>
         </div>
       </section>
 
-      {/* THE SPACE (simple gallery placeholders) */}
+      {/* THE SPACE */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <SectionTitle
           eyebrow="The Space"
@@ -247,20 +276,20 @@ export default function RewildingPage() {
         />
 
         <div className="mt-10 grid gap-4 md:grid-cols-12">
-          <div className="md:col-span-7 rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+          <div className="md:col-span-7 rounded-2xl overflow-hidden border border-white/15 bg-white/8">
             <div
               className="aspect-[16/10] bg-cover bg-center"
               style={{ backgroundImage: "url('/images/space-1.jpg')" }}
             />
           </div>
           <div className="md:col-span-5 grid gap-4">
-            <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+            <div className="rounded-2xl overflow-hidden border border-white/15 bg-white/8">
               <div
                 className="aspect-[16/10] bg-cover bg-center"
                 style={{ backgroundImage: "url('/images/space-2.jpg')" }}
               />
             </div>
-            <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+            <div className="rounded-2xl overflow-hidden border border-white/15 bg-white/8">
               <div
                 className="aspect-[16/10] bg-cover bg-center"
                 style={{ backgroundImage: "url('/images/space-3.jpg')" }}
@@ -269,7 +298,12 @@ export default function RewildingPage() {
           </div>
         </div>
 
-        
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <PrimaryButton href={REGISTRATION_URL}>Register Now</PrimaryButton>
+          <p className="text-sm md:text-base text-white/70">
+            After you submit, we’ll follow up with confirmation + payment details.
+          </p>
+        </div>
       </section>
 
       {/* PRICING */}
@@ -285,27 +319,27 @@ export default function RewildingPage() {
             <div
               key={p.name}
               className={[
-                "rounded-2xl border p-6 shadow-lg",
+                "rounded-2xl border p-7 shadow-lg",
                 p.highlight
-                  ? "border-emerald-300/40 bg-emerald-500/10 shadow-emerald-500/10"
-                  : "border-white/10 bg-white/5 shadow-black/20",
+                  ? "border-emerald-200/40 bg-emerald-200/12 shadow-emerald-500/10"
+                  : "border-white/15 bg-white/8 shadow-black/20",
               ].join(" ")}
             >
               {p.highlight ? (
-                <p className="mb-3 inline-flex rounded-full bg-emerald-400/20 px-3 py-1 text-xs text-emerald-200">
+                <p className="mb-3 inline-flex rounded-full bg-emerald-200/20 px-3 py-1 text-xs text-emerald-100">
                   Most Popular
                 </p>
               ) : null}
 
               <div className="flex items-center justify-between gap-3">
-                <h3 className="text-lg font-semibold">{p.name}</h3>
-                <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-xs text-white/80">
+                <h3 className="text-lg md:text-xl font-semibold">{p.name}</h3>
+                <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs text-white/85">
                   USD
                 </span>
               </div>
 
-              <p className="mt-4 text-3xl font-semibold">{p.price}</p>
-              <p className="mt-2 text-sm text-white/65">{p.note}</p>
+              <p className="mt-4 text-3xl md:text-4xl font-semibold">{p.price}</p>
+              <p className="mt-2 text-base text-white/75">{p.note}</p>
 
               <div className="mt-6">
                 <PrimaryButton href={REGISTRATION_URL}>Select in Form</PrimaryButton>
@@ -314,7 +348,7 @@ export default function RewildingPage() {
           ))}
         </div>
 
-        <p className="mt-6 text-center text-sm text-white/60">
+        <p className="mt-6 text-center text-sm md:text-base text-white/70">
           Payment methods are shown inside the registration form.
         </p>
       </section>
@@ -331,15 +365,19 @@ export default function RewildingPage() {
           {faqs.map((f) => (
             <details
               key={f.q}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="group rounded-2xl border border-white/15 bg-white/8 p-7"
             >
-              <summary className="cursor-pointer list-none font-semibold">
+              <summary className="cursor-pointer list-none font-semibold text-lg">
                 <div className="flex items-center justify-between gap-4">
                   <span>{f.q}</span>
-                  <span className="text-white/60 group-open:rotate-45 transition">+</span>
+                  <span className="text-white/70 group-open:rotate-45 transition">
+                    +
+                  </span>
                 </div>
               </summary>
-              <p className="mt-3 text-white/75 leading-relaxed">{f.a}</p>
+              <p className="mt-3 text-white/85 leading-relaxed text-base md:text-lg">
+                {f.a}
+              </p>
             </details>
           ))}
         </div>
@@ -354,36 +392,35 @@ export default function RewildingPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-black/30">
+      <footer className="border-t border-white/10 bg-black/20">
         <div className="mx-auto max-w-6xl px-6 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <p className="text-white/60 text-sm">
+          <p className="text-white/70 text-sm md:text-base">
             © {new Date().getFullYear()} Interalchemy Rewilding • All prices in USD
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              className="rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+              className="rounded-xl border border-white/25 bg-white/8 px-4 py-2 text-sm hover:bg-white/12"
               href={INSTAGRAM_URL}
               target="_blank"
             >
               Instagram
             </Link>
             <Link
-              className="rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+              className="rounded-xl border border-white/25 bg-white/8 px-4 py-2 text-sm hover:bg-white/12"
               href={LINKTREE_URL}
               target="_blank"
             >
               Linktree
             </Link>
             <Link
-              className="rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+              className="rounded-xl border border-white/25 bg-white/8 px-4 py-2 text-sm hover:bg-white/12"
               href={`mailto:${EMAIL}`}
             >
               Email
             </Link>
             <Link
-              className="rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+              className="rounded-xl border border-white/25 bg-white/8 px-4 py-2 text-sm hover:bg-white/12"
               href={REGISTRATION_URL}
-              target="_blank"
             >
               Register
             </Link>
@@ -392,13 +429,12 @@ export default function RewildingPage() {
       </footer>
 
       {/* Sticky mobile CTA */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-black/60 backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-black/40 backdrop-blur md:hidden">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-3">
-          <p className="text-sm text-white/80">Jan 26–31, 2026 • USD</p>
+          <p className="text-sm text-white/90">Jan 26–31, 2026 • USD</p>
           <Link
             href={REGISTRATION_URL}
-            target="_blank"
-            className="rounded-xl bg-emerald-400 px-4 py-2 text-sm font-semibold text-emerald-950"
+            className="rounded-xl bg-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-950"
           >
             Register
           </Link>

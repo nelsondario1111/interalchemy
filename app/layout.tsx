@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   description:
     "Interalchemy Rewilding Specialists — nature-based retreats and rewilding experiences in the Peruvian High Amazon.",
-  metadataBase: new URL("https://interalchemy.vercel.app"), // replace with your final domain when ready
+  metadataBase: new URL("https://interalchemy.vercel.app"),
   openGraph: {
     title: "Interalchemy Rewilding",
     description:
@@ -42,9 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-dvh antialiased bg-black text-white">
-        {children}
-      </body>
+      <body className="min-h-dvh antialiased">{children}</body>
     </html>
   );
 }
